@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/MainFulfillOrdersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="?attr/actionModeShareDrawable" />
+
+    <TextView
+        android:id="@+id/TotalOrdersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="NumOrdersView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/denagoLogoIMGView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="?attr/listChoiceBackgroundIndicator"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <TextView
+        android:id="@+id/denagoLogoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/denagoOrdersTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/denagoLogoIMGView"
+        app:layout_constraintStart_toEndOf="@+id/denagoLogoIMGView"
+        app:layout_constraintTop_toTopOf="@+id/denagoLogoIMGView" />
+
+    <TextView
+        android:id="@+id/denagoOrdersCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/denagoLogoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/denagoLogoTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/gotraxLogoIMGView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/denagoLogoIMGView"
+        app:srcCompat="?attr/listChoiceBackgroundIndicator" />
+
+    <TextView
+        android:id="@+id/gotraxLogoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/gotraxOrdersTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/gotraxLogoIMGView"
+        app:layout_constraintStart_toEndOf="@+id/gotraxLogoIMGView"
+        app:layout_constraintTop_toTopOf="@+id/gotraxLogoIMGView" />
+
+    <TextView
+        android:id="@+id/gotraxOrdersCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/gotraxLogoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gotraxLogoTextView" />
+
+    <ImageView
+        android:id="@+id/amazonLogoIMGView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gotraxLogoIMGView"
+        app:srcCompat="?attr/listChoiceBackgroundIndicator" />
+
+    <TextView
+        android:id="@+id/amazonLogoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/amazonOrdersTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/amazonLogoIMGView"
+        app:layout_constraintStart_toEndOf="@+id/amazonLogoIMGView"
+        app:layout_constraintTop_toTopOf="@+id/amazonLogoIMGView" />
+
+    <TextView
+        android:id="@+id/amazonOrdersCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/amazonLogoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amazonLogoTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
