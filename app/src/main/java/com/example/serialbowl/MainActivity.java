@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +18,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // set textview values
+        TextView denagoOrderCountTV = (TextView) findViewById(R.id.denagoOrdersCountTextView);
+        TextView gotraxOrderCountTV = (TextView) findViewById(R.id.gotraxOrdersCountTextView);
+        TextView amazonOrderCountTV = (TextView) findViewById(R.id.amazonOrdersCountTextView);
+        TextView totalOrdersCountTV = (TextView) findViewById(R.id.TotalOrdersTextView);
+
+        String denagoOrderCount = "0";
+        String gotraxOrderCount = "0";
+        String amazonOrderCount = "0";
+        String totalOrdersCount = "0 Orders to fulfill.";
+
+
+        denagoOrderCountTV.setText(denagoOrderCount);
+        gotraxOrderCountTV.setText(gotraxOrderCount);
+        amazonOrderCountTV.setText(amazonOrderCount);
+        totalOrdersCountTV.setText(totalOrdersCount);
+
+
     }
 
     @Override
@@ -60,4 +83,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RecieveContainers.class);
         startActivity(intent);
     }
+
+
 }
