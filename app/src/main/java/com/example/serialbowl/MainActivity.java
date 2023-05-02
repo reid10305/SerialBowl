@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -81,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
     public void showRecieveContainerActivity(){
         //todo
         Intent intent = new Intent(this, RecieveContainers.class);
+        startActivity(intent);
+    }
+
+    public void showFulfillSelectionActivity(View view){
+        //todo
+        Intent intent = new Intent(this, fulfillSelection.class);
         startActivity(intent);
     }
 

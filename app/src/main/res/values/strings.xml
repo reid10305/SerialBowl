@@ -6,4 +6,21 @@
     <string name="denagoOrdersTitle">denago.com</string>
     <string name="gotraxOrdersTitle">gotrax.com</string>
     <string name="amazonOrdersTitle">Amazon Seller</string>
+    <string name="fulfill">Fulfill</string>
+
+    <string-array name="locations">
+        <item>Location</item>
+        <item>Carrollton, TX</item>
+        <item>Irving, TX</item>
+        <item>Chino, CA</item>
+        <item>Ontario, CA</item>
+        <item>Rancho, CA</item>
+    </string-array>
+
+    <string-array name="channels">
+        <item>Sales Channel</item>
+        <item>denago</item>
+        <item>gotrax</item>
+        <item>amazon</item>
+    </string-array>
 </resources>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SerialBowl">
         <activity
+            android:name=".fulfillSelection"
+            android:exported="false" />
+        <activity
             android:name=".RecieveContainers"
             android:exported="false" />
         <activity
