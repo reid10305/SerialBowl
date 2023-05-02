@@ -67,26 +67,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showHelpActivity(){
-        //todo
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
 
     }
 
     public void showFulfillOrdersActivity(){
-        //todo
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void showRecieveContainerActivity(){
-        //todo
         Intent intent = new Intent(this, RecieveContainers.class);
         startActivity(intent);
     }
 
     public void showFulfillSelectionActivity(View view){
-        //todo
         Intent intent = new Intent(this, fulfillSelection.class);
         startActivity(intent);
     }

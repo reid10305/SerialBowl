@@ -15,6 +15,16 @@ public class NetSuiteAPIHelper {
         this.Base_URL = Base_URL;
     }
 
+    public int getNumOrdersByChannel(String channel){
+        //todo
+        return 0;
+    }
+
+    public int getNumOrdersByLocation(String location){
+        //todo
+        return 0;
+    }
+
     public String[] queryNS(String recordType, String channel, String location){
         //todo
         return null;
