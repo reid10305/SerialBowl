@@ -2,12 +2,13 @@ package com.example.serialbowl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class fulfillSelection extends AppCompatActivity {
+public class fulfillSelection extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,17 @@ public class fulfillSelection extends AppCompatActivity {
     }
 
     public void showSelectedOrdersActivity(View view){
-        //todo
+        Intent intent = new Intent(this, showSelectedOrders.class);
+        Spinner locationsSpinner = (Spinner) findViewById(R.id.locationSpinner);
+        Spinner channelSpinner = (Spinner) findViewById(R.id.channelSpinner);
+
+        String location = locationsSpinner.getSelectedItem().toString();
+        String channel = channelSpinner.getSelectedItem().toString();
+
+        intent.putExtra("LOCATION", location);
+        intent.putExtra("CHANNEL", channel);
+
+        startActivity(intent);
+
     }
 }
