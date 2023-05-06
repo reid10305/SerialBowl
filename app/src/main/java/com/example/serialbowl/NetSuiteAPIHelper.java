@@ -1,5 +1,7 @@
 package com.example.serialbowl;
 
+import android.content.res.Resources;
+
 public class NetSuiteAPIHelper {
     private String Consumer_Key;
     private String Consumer_Secret;
@@ -15,14 +17,16 @@ public class NetSuiteAPIHelper {
         this.Base_URL = Base_URL;
     }
 
-    public int getNumOrdersByChannel(String channel){
+    public String getNumOrdersByChannel(String channel, String Location){
         //todo
-        return 0;
-    }
-
-    public int getNumOrdersByLocation(String location){
-        //todo
-        return 0;
+        switch (Location){
+            case ("Carrollton : Stock TX"):
+                return "20";
+            case ("Chino : Stock CA"):
+                return "10";
+            default:
+                return "10000";
+        }
     }
 
     public String[] queryNS(String recordType, String channel, String location){
@@ -41,6 +45,11 @@ public class NetSuiteAPIHelper {
     }
 
     private String[] parseJSONForSO(String JSON){
+        //todo
+        return null;
+    }
+
+    private String sendSuiteQLQuery(String q){
         //todo
         return null;
     }

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/LocationsSpinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/TotalOrdersTextView"
         android:layout_width="wrap_content"
@@ -21,9 +30,10 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/listChoiceBackgroundIndicator"
-        tools:layout_editor_absoluteY="183dp" />
+        app:layout_constraintTop_toBottomOf="@+id/LocationsSpinner"
+        app:srcCompat="?attr/listChoiceBackgroundIndicator" />
 
     <TextView
         android:id="@+id/denagoLogoTextView"

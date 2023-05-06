@@ -8,36 +8,41 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
+    public NetSuiteAPIHelper NSAPI;
+    private Spinner locationSpinner;
+    public static String SelectedLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // set textview values
-        TextView denagoOrderCountTV = (TextView) findViewById(R.id.denagoOrdersCountTextView);
-        TextView gotraxOrderCountTV = (TextView) findViewById(R.id.gotraxOrdersCountTextView);
-        TextView amazonOrderCountTV = (TextView) findViewById(R.id.amazonOrdersCountTextView);
-        TextView totalOrdersCountTV = (TextView) findViewById(R.id.TotalOrdersTextView);
+        NSAPI = new NetSuiteAPIHelper(null, null, null, null, null);
 
-        String denagoOrderCount = "0";
-        String gotraxOrderCount = "0";
-        String amazonOrderCount = "0";
-        String totalOrdersCount = "0 Orders to fulfill.";
+        locationSpinner = (Spinner) findViewById(R.id.LocationsSpinner);
 
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.locations, android.R.layout.simple_spinner_item);
+        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(locationAdapter);
 
-        denagoOrderCountTV.setText(denagoOrderCount);
-        gotraxOrderCountTV.setText(gotraxOrderCount);
-        amazonOrderCountTV.setText(amazonOrderCount);
-        totalOrdersCountTV.setText(totalOrdersCount);
-
-
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                setTextViews();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent){}
+        });
+        setTextViews();
     }
 
     @Override
@@ -45,6 +50,31 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    private void setTextViews(){
+        // set textview values
+        TextView denagoOrderCountTV = (TextView) findViewById(R.id.denagoOrdersCountTextView);
+        TextView gotraxOrderCountTV = (TextView) findViewById(R.id.gotraxOrdersCountTextView);
+        TextView amazonOrderCountTV = (TextView) findViewById(R.id.amazonOrdersCountTextView);
+        TextView totalOrdersCountTV = (TextView) findViewById(R.id.TotalOrdersTextView);
+
+        SelectedLocation = locationSpinner.getSelectedItem().toString();
+
+        String denagoOrderCount = getNumOrders(getString(R.string.denagoOrdersTitle), SelectedLocation);
+        String gotraxOrderCount = getNumOrders(getString(R.string.gotraxOrdersTitle), SelectedLocation);
+        String amazonOrderCount = getNumOrders(getString(R.string.amazonOrdersTitle), SelectedLocation);
+        String totalOrdersCount = "0 Orders to fulfill.";
+
+
+        denagoOrderCountTV.setText(denagoOrderCount);
+        gotraxOrderCountTV.setText(gotraxOrderCount);
+        amazonOrderCountTV.setText(amazonOrderCount);
+        totalOrdersCountTV.setText(totalOrdersCount);
+    }
+
+    private String getNumOrders(String channel, String location){
+        return NSAPI.getNumOrdersByChannel(channel, location);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -55,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.recieveContainersMenuItem:
                 showRecieveContainerActivity();
+                return true;
+
+            case R.id.settingsMenuItem:
+                showSettingsActivity();
                 return true;
 
             case R.id.helpMenuItem:
@@ -69,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
     public void showHelpActivity(){
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
-
     }
 
     public void showFulfillOrdersActivity(){
@@ -84,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFulfillSelectionActivity(View view){
         Intent intent = new Intent(this, fulfillSelection.class);
+        startActivity(intent);
+    }
+
+    public void showSettingsActivity(){
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

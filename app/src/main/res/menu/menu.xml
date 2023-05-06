@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/fulfillOrdersMenuItem"
         android:title="@string/fulfillOrders" />
     <item
         android:id="@+id/recieveContainersMenuItem"
         android:title="@string/recieveContainers" />
+    <item
+        android:id="@+id/settingsMenuItem"
+        android:title="@string/settings" />
     <item
         android:id="@+id/helpMenuItem"
         android:title="@string/help" />

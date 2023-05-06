@@ -2,25 +2,32 @@
     <string name="app_name">SerialBowl</string>
     <string name="fulfillOrders">Fulfill Orders</string>
     <string name="recieveContainers">Recieve Containers</string>
+    <string name="settings">Settings</string>
     <string name="help">Help</string>
     <string name="denagoOrdersTitle">denago.com</string>
     <string name="gotraxOrdersTitle">gotrax.com</string>
     <string name="amazonOrdersTitle">Amazon Seller</string>
     <string name="fulfill">Fulfill</string>
+    <string name="ONT">Ontario : Stock CA</string>
+    <string name="CHI">Chino : Stock CA</string>
+    <string name="CAR">Carrollton : Stock TX</string>
+    <string name="IRV">Irving : Stock TX</string>
+    <string name="RAN">Rancho : Stock CA</string>
+
+
 
     <string-array name="locations">
-        <item>Location</item>
-        <item>Carrollton, TX</item>
-        <item>Irving, TX</item>
-        <item>Chino, CA</item>
-        <item>Ontario, CA</item>
-        <item>Rancho, CA</item>
+        <item>@string/CAR</item>
+        <item>@string/CHI</item>
+        <item>@string/ONT</item>
+        <item>@string/IRV</item>
+        <item>@string/RAN</item>
     </string-array>
 
     <string-array name="channels">
         <item>Sales Channel</item>
-        <item>denago</item>
-        <item>gotrax</item>
-        <item>amazon</item>
+        <item>denago.com</item>
+        <item>GOTRAX.COM</item>
+        <item>Amazon Seller SC</item>
     </string-array>
 </resources>

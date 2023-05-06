@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SerialBowl">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".showSelectedOrders"
             android:exported="false" />
         <activity

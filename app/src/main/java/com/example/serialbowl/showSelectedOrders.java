@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.strictmode.ServiceConnectionLeakedViolation;
 import android.widget.TextView;
 
 public class showSelectedOrders extends MainActivity {
@@ -13,15 +14,17 @@ public class showSelectedOrders extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_selected_orders);
 
+        String Location = MainActivity.SelectedLocation;
         Intent intent = getIntent();
 
-        String location = intent.getStringExtra("LOCATION");
         String channel = intent.getStringExtra("CHANNEL");
 
         TextView description = (TextView) findViewById(R.id.ordersDescriptionTextView);
-        description.setText(location + ":" + channel);
+        description.setText(Location + ":" + channel);
 
-        String[] resultOrders = getOrdersFromNS(location, channel);
+
+
+        String[] resultOrders = getOrdersFromNS(Location, channel);
 
 
     }
