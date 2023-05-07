@@ -13,7 +13,8 @@
     <string name="CAR">Carrollton : Stock TX</string>
     <string name="IRV">Irving : Stock TX</string>
     <string name="RAN">Rancho : Stock CA</string>
-
+    <string name="save">Save Changes</string>
+    <string name="login">LOGIN</string>
 
 
     <string-array name="locations">
@@ -30,4 +31,14 @@
         <item>GOTRAX.COM</item>
         <item>Amazon Seller SC</item>
     </string-array>
+
+    <string-array name="logins">
+        <item>
+            <string-array name="admin">
+                <item name="login">admin</item>
+                <item name="password">password</item>
+            </string-array>
+        </item>
+    </string-array>
+
 </resources>
