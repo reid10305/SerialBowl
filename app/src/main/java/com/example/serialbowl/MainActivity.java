@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
     public NetSuiteAPIHelper NSAPI;
     private Spinner locationSpinner;
-    public static String SelectedLocation;
+    private String SelectedLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFulfillOrdersActivity(){
         Intent intent = new Intent(this, MainActivity.class);
+
         startActivity(intent);
     }
 
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFulfillSelectionActivity(View view){
         Intent intent = new Intent(this, fulfillSelection.class);
+        intent.putExtra("LOCATION", SelectedLocation);
         startActivity(intent);
     }
 

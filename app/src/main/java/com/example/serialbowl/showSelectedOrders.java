@@ -14,9 +14,8 @@ public class showSelectedOrders extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_selected_orders);
 
-        String Location = MainActivity.SelectedLocation;
         Intent intent = getIntent();
-
+        String Location = intent.getStringExtra("LOCATION");
         String channel = intent.getStringExtra("CHANNEL");
 
         TextView description = (TextView) findViewById(R.id.ordersDescriptionTextView);

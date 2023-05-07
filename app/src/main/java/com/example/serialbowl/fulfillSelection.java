@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class fulfillSelection extends MainActivity {
+    private String Location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +15,10 @@ public class fulfillSelection extends MainActivity {
         setContentView(R.layout.activity_fulfill_selection);
 
         Spinner channelSpinner = (Spinner) findViewById(R.id.ChannelSpinner);
+
+        Intent intent = getIntent();
+        Location = intent.getStringExtra("LOCATION");
+
 
         ArrayAdapter<CharSequence> channelAdapter = ArrayAdapter.createFromResource(this, R.array.channels, android.R.layout.simple_spinner_item);
         channelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -28,6 +33,7 @@ public class fulfillSelection extends MainActivity {
         String channel = channelSpinner.getSelectedItem().toString();
 
         intent.putExtra("CHANNEL", channel);
+        intent.putExtra("LOCATION", Location);
 
         startActivity(intent);
 

@@ -33,8 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         else {
             Toast.makeText(LoginActivity.this, "Invalid Login!", Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     private void continueToMain(){
