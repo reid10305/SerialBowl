@@ -1,10 +1,16 @@
 package com.example.serialbowl;
 
+import static java.lang.String.valueOf;
+
 import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckedTextView;
@@ -50,11 +56,11 @@ public class StartFulfillment extends AppCompatActivity {
 
                 String targetSKU = lineItems[i][0];
                 String numNeeded = lineItems[i][1];
-
+                int lineNum = i;
                 itemDescriptorTV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        inputVIN(targetSKU, numNeeded);
+                        inputVIN(targetSKU, numNeeded, lineNum);
                     }
                 });
 
@@ -68,25 +74,31 @@ public class StartFulfillment extends AppCompatActivity {
             vinStatus.setChecked(false);
             //vinStatus.setLayoutParams(new TableRow.LayoutParams(24, 24));
 
+            vinStatus.setId(i);
+
             lineItemsView.addView(lineItem);
             lineItemsView.addView(vinStatus);
 
         }
     }
 
-    private void inputVIN(String targetSKU, String num){
+    @Override
+    protected void onActivityResult(int rq, int result, Intent data){
+        super.onActivityResult(rq, result, data);
+
+        if (result == Activity.RESULT_OK){
+            CheckedTextView updated = (CheckedTextView) findViewById(rq);
+            updated.setChecked(true);
+            updated.setCheckMarkDrawable(R.drawable.checkmark);
+        }
+    }
+
+    private void inputVIN(String targetSKU, String num, int lineNum){
+
         Intent intent = new Intent(this, RetrieveVINS.class);
         intent.putExtra("SKU", targetSKU);
         intent.putExtra("NUM_NEEDED", num);
-        intent.putExtra("NSAPI", NSAPI);
 
-        ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                new ActivityRestulCallback<ActivityResult>()){
-                    @Override
-                    public void onActivityResult(ActivityResult result){
-
-            }
-        });
+        startActivityForResult(intent, lineNum);
     }
 }

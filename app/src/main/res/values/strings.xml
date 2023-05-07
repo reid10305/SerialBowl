@@ -20,6 +20,13 @@
     <string name="datetitle">Order Date</string>
     <string name="scrollViewDesc">ordersScrollView</string>
     <string name="lineItemsScroll">orderLineItemsScrollView</string>
+    <string name="done">Done</string>
+    <string name="required">Required: </string>
+    <string name="current">Current: </string>
+    <string name="vinscrollview">VIN List</string>
+    <string name="addVINButton">addVIN</string>
+    <string name="skuHint">SKU</string>
+    <string name="vinHint">VIN</string>
 
 
     <string-array name="locations">
