@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Toast;
 
 public class SettingsActivity extends MainActivity {
-
+    private NetSuiteAPIHelper NSAPI;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Intent intent = getIntent();
+        NSAPI = (NetSuiteAPIHelper) intent.getSerializableExtra("NSAPI");
     }
 
     public void saveAPIChanges(View view){

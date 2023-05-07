@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFulfillOrdersActivity(){
         Intent intent = new Intent(this, MainActivity.class);
-
         startActivity(intent);
     }
 
@@ -119,11 +118,13 @@ public class MainActivity extends AppCompatActivity {
     public void showFulfillSelectionActivity(View view){
         Intent intent = new Intent(this, fulfillSelection.class);
         intent.putExtra("LOCATION", SelectedLocation);
+        intent.putExtra("NSAPI", NSAPI);
         startActivity(intent);
     }
 
     public void showSettingsActivity(){
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("NSAPI", NSAPI);
         startActivity(intent);
     }
 

@@ -8,6 +8,7 @@ import android.os.strictmode.ServiceConnectionLeakedViolation;
 import android.widget.TextView;
 
 public class showSelectedOrders extends MainActivity {
+    private NetSuiteAPIHelper NSAPI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class showSelectedOrders extends MainActivity {
         Intent intent = getIntent();
         String Location = intent.getStringExtra("LOCATION");
         String channel = intent.getStringExtra("CHANNEL");
+        NSAPI = (NetSuiteAPIHelper) intent.getSerializableExtra("NSAPI");
 
         TextView description = (TextView) findViewById(R.id.ordersDescriptionTextView);
         description.setText(Location + ":" + channel);

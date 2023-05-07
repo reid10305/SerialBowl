@@ -8,6 +8,7 @@ import android.widget.Spinner;
 
 public class fulfillSelection extends MainActivity {
     private String Location;
+    private NetSuiteAPIHelper NSAPI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class fulfillSelection extends MainActivity {
 
         Intent intent = getIntent();
         Location = intent.getStringExtra("LOCATION");
+        NSAPI = (NetSuiteAPIHelper) intent.getSerializableExtra("NSAPI");
 
 
         ArrayAdapter<CharSequence> channelAdapter = ArrayAdapter.createFromResource(this, R.array.channels, android.R.layout.simple_spinner_item);
@@ -34,6 +36,7 @@ public class fulfillSelection extends MainActivity {
 
         intent.putExtra("CHANNEL", channel);
         intent.putExtra("LOCATION", Location);
+        intent.putExtra("NSAPI", NSAPI);
 
         startActivity(intent);
 

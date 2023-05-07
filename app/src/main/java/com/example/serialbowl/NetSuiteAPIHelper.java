@@ -2,7 +2,9 @@ package com.example.serialbowl;
 
 import android.content.res.Resources;
 
-public class NetSuiteAPIHelper {
+import java.io.Serializable;
+
+public class NetSuiteAPIHelper implements Serializable {
     private String Consumer_Key;
     private String Consumer_Secret;
     private String Account;
