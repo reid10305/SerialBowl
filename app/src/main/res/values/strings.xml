@@ -19,6 +19,7 @@
     <string name="numitemstitle"># Items</string>
     <string name="datetitle">Order Date</string>
     <string name="scrollViewDesc">ordersScrollView</string>
+    <string name="lineItemsScroll">orderLineItemsScrollView</string>
 
 
     <string-array name="locations">

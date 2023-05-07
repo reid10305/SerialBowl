@@ -40,6 +40,15 @@ public class NetSuiteAPIHelper implements Serializable {
         return test;
     }
 
+    public String[][] getOrderLineItems(String orderNum){
+        //todo
+
+        String [][] test = {{"DE-E13-BONE-L/XL", "1"},
+                           {"DE-E10-WGY", "3"}};
+
+        return test;
+    }
+
     private String sendGET(String recordType, String channel, String location){
         //todo
         return null;
