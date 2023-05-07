@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SerialBowl">
         <activity
+            android:name=".RetrieveVINS"
+            android:exported="false" />
+        <activity
             android:name=".StartFulfillment"
             android:exported="false" />
         <activity

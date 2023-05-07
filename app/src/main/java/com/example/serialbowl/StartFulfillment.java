@@ -1,10 +1,13 @@
 package com.example.serialbowl;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -46,23 +49,44 @@ public class StartFulfillment extends AppCompatActivity {
                 itemDescriptorTV.setText(lineItems[i][j]);
 
                 String targetSKU = lineItems[i][0];
+                String numNeeded = lineItems[i][1];
 
                 itemDescriptorTV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        inputVIN(targetSKU);
+                        inputVIN(targetSKU, numNeeded);
                     }
                 });
 
                 lineItem.addView(itemDescriptorTV);
             }
 
+            CheckedTextView vinStatus = new CheckedTextView(StartFulfillment.this);
+            //vinStatus.setCheckMarkDrawable(R.drawable.checkmark);
+            vinStatus.setCheckMarkDrawable(0);
+
+            vinStatus.setChecked(false);
+            //vinStatus.setLayoutParams(new TableRow.LayoutParams(24, 24));
+
             lineItemsView.addView(lineItem);
+            lineItemsView.addView(vinStatus);
 
         }
     }
 
-    private void inputVIN(String targetSKU){
+    private void inputVIN(String targetSKU, String num){
+        Intent intent = new Intent(this, RetrieveVINS.class);
+        intent.putExtra("SKU", targetSKU);
+        intent.putExtra("NUM_NEEDED", num);
+        intent.putExtra("NSAPI", NSAPI);
 
+        ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityRestulCallback<ActivityResult>()){
+                    @Override
+                    public void onActivityResult(ActivityResult result){
+
+            }
+        });
     }
 }
