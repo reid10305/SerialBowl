@@ -15,6 +15,10 @@
     <string name="RAN">Rancho : Stock CA</string>
     <string name="save">Save Changes</string>
     <string name="login">LOGIN</string>
+    <string name="ordernumtitle">Order #</string>
+    <string name="numitemstitle"># Items</string>
+    <string name="datetitle">Order Date</string>
+    <string name="scrollViewDesc">ordersScrollView</string>
 
 
     <string-array name="locations">

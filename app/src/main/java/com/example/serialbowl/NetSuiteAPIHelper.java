@@ -31,9 +31,13 @@ public class NetSuiteAPIHelper implements Serializable {
         }
     }
 
-    public String[] queryNS(String recordType, String channel, String location){
+    public String[][] queryNS(String recordType, String channel, String location){
         //todo
-        return null;
+
+        String [][] test = {{"test1", "10", "10.2.2023"},
+                            {"test2", "1", "10.1.2023"},
+                            {"test3", "3", "09.1.2023"}};
+        return test;
     }
 
     private String sendGET(String recordType, String channel, String location){
@@ -55,4 +59,14 @@ public class NetSuiteAPIHelper implements Serializable {
         //todo
         return null;
     }
+
+    public void setConsumer_Key(String newKey){ Consumer_Key = newKey; }
+    public void setConsumer_Secret(String newKey){ Consumer_Secret = newKey; }
+    public void setAccount(String acct){ Account = acct; }
+    public void setToken(String newToken){ Token = newToken; }
+    public void setURL(String newURL){ Base_URL = newURL; }
+
+
+
+
 }

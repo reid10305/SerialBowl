@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class SettingsActivity extends MainActivity {
     private NetSuiteAPIHelper NSAPI;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +21,21 @@ public class SettingsActivity extends MainActivity {
     }
 
     public void saveAPIChanges(View view){
-        //todo
+        EditText consumerET = (EditText) findViewById(R.id.ConsumerKeyUpdate);
+        EditText secretET = (EditText) findViewById(R.id.ConsumerSecretUpdate);
+        EditText accountET = (EditText) findViewById(R.id.AccountUpdate);
+        EditText tokenET = (EditText) findViewById(R.id.TokenUpdate);
+
+        String newConsumer = consumerET.getText().toString();
+        String newSecret = secretET.getText().toString();
+        String newAccount = accountET.getText().toString();
+        String newToken = tokenET.getText().toString();
+
+        NSAPI.setConsumer_Key(newConsumer);
+        NSAPI.setConsumer_Secret(newSecret);
+        NSAPI.setAccount(newAccount);
+        NSAPI.setToken(newToken);
+
         returnHome();
     }
 
