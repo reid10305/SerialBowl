@@ -31,7 +31,7 @@ public class ScanVIN extends AppCompatActivity {
         if (skuInput.equals(reqSKU)) {
             // return to retrievevins activity
             Intent complete = new Intent();
-            complete.putExtra("VIN", vinET.getText());
+            complete.putExtra("VIN", vinET.getText().toString());
             setResult(Activity.RESULT_OK, complete);
             finish();
         }
