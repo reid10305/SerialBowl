@@ -27,6 +27,7 @@
     <string name="addVINButton">addVIN</string>
     <string name="skuHint">SKU</string>
     <string name="vinHint">VIN</string>
+    <string name="tryfulfill">Submit</string>
 
 
     <string-array name="locations">

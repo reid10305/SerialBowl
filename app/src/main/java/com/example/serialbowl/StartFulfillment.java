@@ -17,11 +17,17 @@ import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StartFulfillment extends AppCompatActivity {
 
     private String orderNum;
     private NetSuiteAPIHelper NSAPI;
+    private List<List<String>> VINsBySKU = new ArrayList<List<String>>();
+    private String[][] lineItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,7 @@ public class StartFulfillment extends AppCompatActivity {
     }
 
     private void showLineItems(){
-        String[][] lineItems = NSAPI.getOrderLineItems(orderNum);
+        lineItems = NSAPI.getOrderLineItems(orderNum);
         LinearLayout lineItemsView = (LinearLayout) findViewById(R.id.orderLineItemsView);
 
         for (int i = 0; i < lineItems.length; i++) {
@@ -47,6 +53,8 @@ public class StartFulfillment extends AppCompatActivity {
             LinearLayout lineItem = new LinearLayout(StartFulfillment.this);
             lineItem.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             lineItem.setOrientation(LinearLayout.HORIZONTAL);
+
+            VINsBySKU.add(new ArrayList<String>());
 
             for (int j = 0; j < lineItems[i].length; j++) {
                 // create text view
@@ -90,6 +98,7 @@ public class StartFulfillment extends AppCompatActivity {
             CheckedTextView updated = (CheckedTextView) findViewById(rq);
             updated.setChecked(true);
             updated.setCheckMarkDrawable(R.drawable.checkmark);
+            VINsBySKU.set(rq, (ArrayList<String>) data.getSerializableExtra("VINS"));
         }
     }
 
@@ -100,5 +109,35 @@ public class StartFulfillment extends AppCompatActivity {
         intent.putExtra("NUM_NEEDED", num);
 
         startActivityForResult(intent, lineNum);
+    }
+
+    public void submitVINStoNS(View view){
+
+        String[] skus = new String[lineItems.length];
+
+        boolean isAllVINsReady = true;
+
+        for (int i = 0; i < lineItems.length; i++) {
+            skus[i] = lineItems[i][0];
+
+            CheckedTextView isReadyTV = (CheckedTextView) findViewById(i);
+            isAllVINsReady = isReadyTV.isChecked();
+        }
+
+        boolean isFulfilledbyNS = NSAPI.fulfillOrder(orderNum, skus, VINsBySKU);
+
+        if (! isFulfilledbyNS) {
+            Toast.makeText(StartFulfillment.this, "An Error Occurred!", Toast.LENGTH_LONG).show();
+        }
+
+        else if (! isAllVINsReady) {
+            Toast.makeText(StartFulfillment.this, "Gather all VINs!", Toast.LENGTH_LONG).show();
+        }
+
+        else {
+            Toast.makeText(StartFulfillment.this, "Order Fulfilled in NS!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

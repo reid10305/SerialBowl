@@ -3,6 +3,8 @@ package com.example.serialbowl;
 import android.content.res.Resources;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NetSuiteAPIHelper implements Serializable {
     private String Consumer_Key;
@@ -47,6 +49,21 @@ public class NetSuiteAPIHelper implements Serializable {
                            {"DE-E10-WGY", "3"}};
 
         return test;
+    }
+
+    public boolean fulfillOrder(String order, String[] skuList, List<List<String>> VINs){
+
+        if (order.equals("") || order == null){
+            return false;
+        }
+
+        else if (VINs == null) {
+            return false;
+        }
+
+        else {
+            return true;
+        }
     }
 
     private String sendGET(String recordType, String channel, String location){
